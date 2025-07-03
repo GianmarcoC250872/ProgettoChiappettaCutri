@@ -1,0 +1,10 @@
+#ifndef CONFIG_H_INCLUDED
+#define CONFIG_H_INCLUDED
+
+#define MAX_NAME_LEN 20
+#define MAX_PLAYERS 4
+#define START_POS 1
+#define MAX_SQUARES 64
+#define MAX_TYPE_NAME 30
+
+#endif // CONFIG_H_INCLUDED
