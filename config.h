@@ -7,4 +7,8 @@
 #define MAX_SQUARES 64
 #define MAX_TYPE_NAME 30
 
+#define DIM_TAVOLA 8
+#define MAX_CASELLE 64
+#define MAX_SPECIALI 20
+
 #endif // CONFIG_H_INCLUDED

@@ -4,20 +4,22 @@
 #include <stdbool.h>
 #include "config.h"
 
+typedef enum{LIBERO, BLOCCATO, NEL_POZZO, ARRIVATO}
+StatoGiocatore;
+
 typedef struct Player {
-    int id;
     char name[MAX_NAME_LEN];
+    int id;
     int position;
-    int skipped_turns;
-    int finished;
-    int arrival_order;
+    StatoGiocatore stato;
+    int turniNelPozzo;
     struct Player *next;
-} Player;
+}Player;
 
 typedef struct {
     Player *head;
     Player *cursor;
-} PlayerList;
+}PlayerList;
 
 PlayerList* creaListaGiocatori();
 void inserisciGiocatoreInTesta(PlayerList *list, char *name, int pos, int id);

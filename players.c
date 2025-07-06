@@ -21,9 +21,8 @@ void inserisciGiocatoreInTesta(PlayerList *list, char *name, int pos, int id) {
     new_player->id = id;
     strncpy(new_player->name, name, MAX_NAME_LEN);
     new_player->position = pos;
-    new_player->skipped_turns = 0;
-    new_player->finished = 0;
-    new_player->arrival_order = 0;
+    new_player->stato = LIBERO;
+    new_player->turniNelPozzo = 0;
     new_player->next = list->head;
     list->head = new_player;
 }
@@ -38,9 +37,8 @@ void inserisciGiocatoreOrdinato(PlayerList *list, char *name, int pos, int id) {
     new_player->id = id;
     strncpy(new_player->name, name, MAX_NAME_LEN);
     new_player->position = pos;
-    new_player->skipped_turns = 0;
-    new_player->finished = 0;
-    new_player->arrival_order = 0;
+    new_player->stato = LIBERO;
+    new_player->turniNelPozzo = 0;
     new_player->next = NULL;
 
     if (listaGiocatoriVuota(list) || pos > list->head->position) {
@@ -59,17 +57,26 @@ void inserisciGiocatoreOrdinato(PlayerList *list, char *name, int pos, int id) {
 void stampaListaGiocatori(PlayerList *list) {
     if (!list) return;
     Player *current = list->head;
-    printf("---- GIOCATORI ----\n");
+    printf("----- GIOCATORI -----\n");
     while (current != NULL) {
         printf("ID:%d | %s - Posizione: %d", current->id, current->name, current->position);
-        if (current->finished)
-            printf(" (Arrivato, Ordine: %d)", current->arrival_order);
-        else if (current->skipped_turns > 0)
-            printf(" (Salta %d turni)", current->skipped_turns);
+        switch (current->stato) {
+            case LIBERO:
+                break;
+            case BLOCCATO:
+                printf(" (Salta 1 turno)");
+                break;
+            case NEL_POZZO:
+                printf(" (Nel pozzo, turno %d)", current->turniNelPozzo);
+                break;
+            case ARRIVATO:
+                printf(" (Arrivato)");
+                break;
+        }
         printf("\n");
         current = current->next;
     }
-    printf("-------------------\n");
+    printf("---------------------\n");
 }
 
 int lunghezzaListaGiocatori(PlayerList *list) {
