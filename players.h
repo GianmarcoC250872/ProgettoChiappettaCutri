@@ -13,6 +13,7 @@ typedef struct Player {
     int position;
     StatoGiocatore stato;
     int turniNelPozzo;
+    int colore_id;
     struct Player *next;
 }Player;
 
@@ -22,8 +23,8 @@ typedef struct {
 }PlayerList;
 
 PlayerList* creaListaGiocatori();
-void inserisciGiocatoreInTesta(PlayerList *list, char *name, int pos, int id);
-void inserisciGiocatoreOrdinato(PlayerList *list, char *name, int pos, int id);
+void inserisciGiocatoreInTesta(PlayerList *list, char *name, int pos, int id, int colore_id);
+void inserisciGiocatoreOrdinato(PlayerList *list, char *name, int pos, int id, int colore_id);
 void stampaListaGiocatori(PlayerList *list);
 int lunghezzaListaGiocatori(PlayerList *list);
 bool listaGiocatoriVuota(PlayerList *list);
@@ -32,5 +33,7 @@ void rewindGiocatori(PlayerList *list);
 bool hasNextGiocatore(PlayerList *list);
 Player *nextGiocatore(PlayerList *list);
 void liberaListaGiocatori(PlayerList *list);
+void stampaClassifica(PlayerList *lista, FILE *logfile);
+
 
 #endif // PLAYERS_H_INCLUDED

@@ -4,6 +4,7 @@
 #include <stdbool.h>
 #include "square_types.h"
 
+//Definizione di una simgola mossa fatta da un giocatore
 typedef struct MossaNode {
     int turno;
     int id_giocatore;

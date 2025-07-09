@@ -3,6 +3,8 @@
 
 const char* nomeTipoCasella(TipoCasella tipo) {
     switch (tipo) {
+        case START: return "Start";
+        case END: return "End";
         case NORMALE: return "Normale";
         case STOP: return "Stop";
         case TORNA_INDIETRO: return "Torna indietro";

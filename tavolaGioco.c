@@ -18,7 +18,7 @@ int num_speciali = 0;
 void caricaCaselleDaFile(const char* filename) {
     FILE* file = fopen(filename, "r");
     if (!file) {
-        perror("Errore apertura caselle.txt");
+        perror("Errore apertura 'caselle.txt'");
         exit(1);
     }
 
@@ -47,7 +47,7 @@ void caricaCaselleDaFile(const char* filename) {
 }
 
 void mescolaSpeciali() {
-    for (int i = num_speciali - 1; i > 0; i--){
+    for (int i = MAX_SPECIALI - 1; i > 0; i--){
         int j = rand() % (i + 1);
         CasellaSpeciale temp = speciali[i];
         speciali[i] = speciali[j];
@@ -58,16 +58,31 @@ void mescolaSpeciali() {
 void assegnaTipiCaselle(ModalitaGioco modalita) {
     caricaCaselleDaFile("caselle.txt");
 
-    if (modalita == ARCADE)
-        mescolaSpeciali();
+    //salva le posizioni originali
+    int posizioni[MAX_SPECIALI];
+    TipoCasella tipi[MAX_SPECIALI];
 
-    for (int k = 0; k < num_speciali; k++){
-        int posizione = speciali[k].posizione;
-        Casella* c = getCasella(posizione);
-        if (c){
-            c->tipo = speciali[k].tipo;
+    for (int i = 0; i < num_speciali; i++) {
+        posizioni[i] = speciali[i].posizione;
+        tipi[i] = speciali[i].tipo;
+    }
 
-            if (c->tipo == AVANZA || c->tipo == TORNA_INDIETRO){
+    //mescola le caselle
+    if (modalita == ARCADE) {
+        for (int i = num_speciali - 1; i > 0; i--) {
+            int j = rand() % (i + 1);
+            TipoCasella tmp = tipi[i];
+            tipi[i] = tipi[j];
+            tipi[j] = tmp;
+        }
+    }
+
+    //assegna i tipi alle posizioni con eventuale effetto
+    for (int i = 0; i < num_speciali; i++) {
+        Casella *c = getCasella(posizioni[i]);
+        if (c) {
+            c->tipo = tipi[i];
+            if (c->tipo == AVANZA || c->tipo == TORNA_INDIETRO) {
                 c->effetto = (rand() % 5) + 1;
             } else {
                 c->effetto = 0;
@@ -77,11 +92,11 @@ void assegnaTipiCaselle(ModalitaGioco modalita) {
 }
 
 void inizializzaTavola(ModalitaGioco modalita){
-    int num = 1;
+    int num = 0;
     int top = 0, bottom = DIM_TAVOLA - 1;
     int left = 0, right = DIM_TAVOLA - 1;
 
-    while (num <= MAX_CASELLE) {
+    while (num < MAX_CASELLE) {
         for (int i = left; i <= right && num <= MAX_CASELLE; i++)
             tavola[top][i] = (Casella){num++, NORMALE, 0};
         top++;
@@ -99,12 +114,20 @@ void inizializzaTavola(ModalitaGioco modalita){
         left++;
     }
 
-    srand(time(NULL));
+    srand(time(NULL)); //inizializzazione del seed per generazioni casuali
+
+    // Imposta START ed END
+    Casella* start = getCasella(0);
+    if (start) start->tipo = START;
+
+    Casella* end = getCasella(MAX_CASELLE - 1);
+    if (end) end->tipo = END;
+
     assegnaTipiCaselle(modalita);
 }
 
 Casella* getCasella(int numero){
-    if (numero < 1 || numero > MAX_CASELLE)
+    if (numero < 0 || numero >= MAX_CASELLE)
         return NULL;
 
     for (int i = 0; i < DIM_TAVOLA; i++){
@@ -117,47 +140,98 @@ Casella* getCasella(int numero){
     return NULL;
 }
 
-void stampaTavolaEstesa(int posizioni[], int num_giocatori) {
-    for (int i = 0; i < DIM_TAVOLA; i++){
+void stampaTavola(PlayerList *lista, int num_giocatori) {
 
-        //Riga superiore
-        for (int j = 0; j < DIM_TAVOLA; j++){
-            printf("[%02d] ", tavola[i][j].numero);
+    //11 CARATTERI MAX PER CASELLA
+    //dichiarazione di un vettore contenente colori ANSI
+    const char* colori[4] = {
+        "\033[1;31m", //Rosso
+        "\033[1;32m", //Verde
+        "\033[1;34m", //Blu
+        "\033[1;33m"  //Giallo
+    };
+
+    int max_casella = DIM_TAVOLA * DIM_TAVOLA - 1;
+
+    for (int i = 0; i < DIM_TAVOLA; i++) { //scorrimento righe tavola
+
+        //Riga 1 della casella: bordo superiore
+        for (int j = 0; j < DIM_TAVOLA; j++)
+            printf("+-----------");
+        printf("+\n");
+
+        //Riga 2 della casella: numero + tipo
+        for (int j = 0; j < DIM_TAVOLA; j++) {
+            int numero = tavola[i][j].numero;
+            Casella *c = getCasella(numero);
+
+            char tipo[6] = "--";
+            if (numero == 0) strncpy(tipo, "START", 6);
+            else if (numero == max_casella) strncpy(tipo, "END", 6);
+            else if (c->tipo == AVANZA) strncpy(tipo, "FRWD", 6);
+            else if (c->tipo == TORNA_INDIETRO) strncpy(tipo, "BACK", 6);
+            else if (c->tipo == POZZO) strncpy(tipo, "POZZ", 6);
+            else if (c->tipo == BACK_TO_START) strncpy(tipo, "BT_S", 6);
+            else if (c->tipo == STOP) strncpy(tipo, "STOP", 6);
+            else strncpy(tipo, "--", 6);
+
+            if (numero == 0) {
+                printf("|   START   ");
+            } else if (numero == max_casella) {
+                printf("|    END    ");
+            } else {
+                printf("| [%02d] %-5s", numero, tipo);
+            }
         }
-        printf("\n");
+        printf("|\n"); //bordo dx
 
-        //Riga inferiore
-        for (int j = 0; j < DIM_TAVOLA; j++){
-            int numero_casella = tavola[i][j].numero;
-            char cella[6] = "-";
-            char buffer[6] = "";
-            int count = 0;
+        // Riga 3: giocatori centrati con spazio e colore ANSI
+        for (int j = 0; j < DIM_TAVOLA; j++) {
+            int numero = tavola[i][j].numero;
 
-            //check giocatori nella casella
-            for (int p = 0; p < num_giocatori; p++){
-                if (posizioni[p] == numero_casella){
-                    if (count == 0)
-                        snprintf(buffer, sizeof(buffer), "G%d", p + 1);
-                    else
-                        snprintf(buffer + strlen(buffer), sizeof(buffer) - strlen(buffer), "/G%d", p + 1);
-                    count++;
+            char buffer[128] = ""; //inizializzazione del buffer
+            int len_riempimento = 0;
+
+            Player *curr = lista->head;
+            while (curr != NULL) {
+                if (curr->position == numero) {
+                    //definizione di un buffer per snprintf
+                    char tmp[32];
+                    //snprintf --> stampa controllata da un buffer su una stringa
+                    snprintf(tmp, sizeof(tmp), "%sG%d\033[0m ", colori[curr->colore_id], curr->id); //colore + Gx + reset colore + spazio
+                    strcat(buffer, tmp);
+                    len_riempimento += 3; //tiene traccia di quanti giocatori sono nella casella (Gx + spazio = 3)
                 }
+                curr = curr->next; //passa al next player
             }
 
-            if (count > 0) {
-                snprintf(cella, sizeof(cella), "%s", buffer);
-            } else{
-                Casella *c = getCasella(numero_casella);
-                if (c->tipo == AVANZA) strncpy(cella, "AV", sizeof(cella));
-                else if (c->tipo == TORNA_INDIETRO) strncpy(cella, "TI", sizeof(cella));
-                else if (c->tipo == POZZO) strncpy(cella, "PZ", sizeof(cella));
-                else if (c->tipo == BACK_TO_START) strncpy(cella, "IN", sizeof(cella));
-                else if (c->tipo == STOP) strncpy(cella, "ST", sizeof(cella));
-                else strncpy(cella, "-", sizeof(cella));
+            // Rimuove spazio finale tramite buffer salvato in size_t (int not negative)
+            size_t len = strlen(buffer);
+
+            //check che il buffer non sia vuoto e che l'ultimo carattere sia uno spazio,
+            //eventualmente lo sostituisce con il terminatore di stringa
+            if (len > 0 && buffer[len - 1] == ' '){
+                buffer[len - 1] = '\0';
+                len_riempimento--;
             }
 
-            printf(" %-4s", cella);
+            //testo della riga centrato
+            int len_tot = 11 - len_riempimento;
+            if (len_tot < 0)
+                len_tot = 0;
+            int len_left = len_tot / 2;
+            int len_right = len_tot - len_left;
+
+            printf("|%*s%s%*s", len_left, "", buffer, len_right, "");
         }
-        printf("\n");
+        printf("|\n"); //bordo dx
+
+        // Riga 4: bordo inferiore
+        for (int j = 0; j < DIM_TAVOLA; j++)
+            printf("+-----------");
+        printf("+\n");
     }
+
+    printf("\033[0m"); // Reset colore
 }
+

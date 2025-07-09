@@ -1,0 +1,54 @@
+# depslib dependency file v1.0
+1752066995 source:c:\codeblocks\giocoocav2\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<time.h>
+	<unistd.h>
+	"players.h"
+	"mosse.h"
+	"square_types.h"
+	"tavolaGioco.h"
+	"config.h"
+
+1752055811 c:\codeblocks\giocoocav2\players.h
+	<stdbool.h>
+	"config.h"
+
+1752057950 c:\codeblocks\giocoocav2\config.h
+
+1751982667 c:\codeblocks\giocoocav2\mosse.h
+	<stdbool.h>
+	"square_types.h"
+
+1752067698 c:\codeblocks\giocoocav2\square_types.h
+	"config.h"
+
+1752067511 c:\codeblocks\giocoocav2\tavolagioco.h
+	"config.h"
+	"square_types.h"
+	"players.h"
+
+1751983849 source:c:\codeblocks\giocoocav2\mosse.c
+	<stdio.h>
+	<stdlib.h>
+	"mosse.h"
+
+1752055682 source:c:\codeblocks\giocoocav2\players.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"players.h"
+
+1752050818 source:c:\codeblocks\giocoocav2\square_types.c
+	<stdio.h>
+	"square_types.h"
+
+1752067286 source:c:\codeblocks\giocoocav2\tavolagioco.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<time.h>
+	"config.h"
+	"tavolaGioco.h"
+

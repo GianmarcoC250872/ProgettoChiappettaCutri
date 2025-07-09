@@ -1,0 +1,79 @@
+==============================
+Partita iniziata il 09/07/2025 alle 12:03:05
+Modalità: Arcade
+Turno 1 | G1 (Gimmy): 3 + 2 | da 0 a 5 | Normale
+Turno 1 | G2 (Aurora): 1 + 3 | da 0 a 4 | Normale
+Turno 1 | G3 (Greta): 1 + 5 | da 0 a 4 | Torna indietro
+Turno 2 | G1 (Gimmy): 3 + 2 | da 5 a 10 | Normale
+Turno 2 | G2 (Aurora): 4 + 6 | da 4 a 14 | Normale
+Turno 2 | G3 (Greta): 6 + 2 | da 4 a 12 | Normale
+Turno 3 | G1 (Gimmy): 2 + 1 | da 10 a 8 | Torna indietro
+Turno 3 | G2 (Aurora): 4 + 1 | da 14 a 19 | Normale
+Turno 3 | G3 (Greta): 4 + 1 | da 12 a 17 | Stop
+Turno 4 | G1 (Gimmy): 2 + 3 | da 8 a 8 | Torna indietro
+Turno 4 | G2 (Aurora): 1 + 3 | da 19 a 23 | Normale
+Turno 5 | G1 (Gimmy): 5 + 4 | da 8 a 17 | Stop
+Turno 5 | G2 (Aurora): 5 + 6 | da 23 a 34 | Normale
+Turno 5 | G3 (Greta): 5 + 1 | da 17 a 23 | Normale
+Turno 6 | G2 (Aurora): 6 + 4 | da 34 a 48 | Avanza
+Turno 6 | G3 (Greta): 4 + 1 | da 23 a 0 | Torna all'inizio
+Turno 7 | G1 (Gimmy): 4 + 5 | da 17 a 26 | Normale
+Turno 7 | G2 (Aurora): 1 + 2 | da 48 a 51 | Normale
+Turno 7 | G3 (Greta): 3 + 5 | da 0 a 8 | Normale
+Turno 8 | G1 (Gimmy): 2 + 6 | da 26 a 34 | Normale
+Turno 8 | G2 (Aurora): 6 + 3 | da 51 a 60 | Pozzo
+Turno 8 | G3 (Greta): 4 + 3 | da 8 a 15 | Normale
+Turno 9 | G1 (Gimmy): 5 + 5 | da 34 a 48 | Avanza
+Turno 9 | G3 (Greta): 3 + 1 | da 15 a 19 | Normale
+Turno 10 | G1 (Gimmy): 1 + 2 | da 48 a 51 | Normale
+Turno 10 | G3 (Greta): 5 + 3 | da 19 a 27 | Normale
+Turno 11 | G1 (Gimmy): 2 + 1 | da 51 a 54 | Normale
+Turno 11 | G3 (Greta): 2 + 1 | da 27 a 30 | Normale
+Turno 12 | G1 (Gimmy): 2 + 1 | da 54 a 57 | Normale
+Turno 12 | G2 (Aurora): 4 + 4 | da 60 a 64 | End
+
+Classifica finale:
+G1 (Gimmy): casella 57
+G2 (Aurora): casella 64
+G3 (Greta): casella 30
+=== Fine partita ===
+
+
+==============================
+Partita iniziata il 09/07/2025 alle 12:09:48
+
+==============================
+Partita iniziata il 09/07/2025 alle 12:10:12
+Modalità: Arcade
+Turno 1 | G1 (Gimmy): 3 + 3 | da 0 a 6 | Stop
+Turno 1 | G2 (Aurora): 3 + 6 | da 0 a 9 | Pozzo
+Turno 1 | G3 (Marco): 3 + 1 | da 0 a 4 | Normale
+Turno 2 | G3 (Marco): 1 + 3 | da 4 a 8 | Normale
+Turno 3 | G1 (Gimmy): 5 + 1 | da 6 a 12 | Normale
+Turno 3 | G2 (Aurora): 6 + 5 | da 9 a 20 | Normale
+Turno 3 | G3 (Marco): 2 + 2 | da 8 a 12 | Normale
+Turno 4 | G1 (Gimmy): 3 + 2 | da 12 a 17 | Stop
+Turno 4 | G2 (Aurora): 3 + 2 | da 20 a 21 | Torna indietro
+Turno 4 | G3 (Marco): 3 + 1 | da 12 a 16 | Normale
+Turno 5 | G2 (Aurora): 6 + 4 | da 21 a 36 | Avanza
+Turno 5 | G3 (Marco): 3 + 5 | da 16 a 24 | Normale
+Turno 6 | G1 (Gimmy): 5 + 1 | da 17 a 23 | Normale
+Turno 6 | G2 (Aurora): 1 + 4 | da 36 a 41 | Normale
+Turno 6 | G3 (Marco): 1 + 5 | da 24 a 30 | Normale
+Turno 7 | G1 (Gimmy): 3 + 3 | da 23 a 29 | Normale
+Turno 7 | G2 (Aurora): 1 + 3 | da 41 a 45 | Normale
+Turno 7 | G3 (Marco): 4 + 3 | da 30 a 37 | Normale
+Turno 8 | G1 (Gimmy): 1 + 6 | da 29 a 38 | Avanza
+Turno 8 | G2 (Aurora): 3 + 1 | da 45 a 49 | Stop
+Turno 8 | G3 (Marco): 4 + 3 | da 37 a 45 | Avanza
+Turno 9 | G1 (Gimmy): 4 + 5 | da 38 a 47 | Normale
+Turno 9 | G3 (Marco): 4 + 4 | da 45 a 53 | Normale
+Turno 10 | G1 (Gimmy): 4 + 6 | da 47 a 57 | Normale
+Turno 10 | G2 (Aurora): 1 + 4 | da 49 a 54 | Normale
+Turno 10 | G3 (Marco): 1 + 3 | da 53 a 57 | Normale
+Turno 11 | G1 (Gimmy): 1 + 6 | da 57 a 64 | End
+
+==== CLASSIFICA FINALE ====
+1. Gimmy - ARRIVATO
+2. Marco - casella 57
+3. Aurora - casella 54

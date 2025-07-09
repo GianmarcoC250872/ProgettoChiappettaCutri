@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include "mosse.h"
 
+//restituisce il puntatore l che punta alla struct ListaMosse appena allocata
 ListaMosse* creaListaMosse() {
     ListaMosse *l = (ListaMosse *)malloc(sizeof(ListaMosse));
     if (l != NULL) {
@@ -11,6 +12,7 @@ ListaMosse* creaListaMosse() {
     return l;
 }
 
+//Crea dinamicamente una nuova mossa di gioco e restituisce un puntatore m alla struct MossaNode
 Mossa creaMossa(int turno, int id_giocatore, int dado1, int dado2, int pos_iniziale, int pos_finale, TipoCasella tipo) {
     Mossa m = (Mossa)malloc(sizeof(MossaNode));
     if (m == NULL) return NULL;
@@ -27,12 +29,15 @@ Mossa creaMossa(int turno, int id_giocatore, int dado1, int dado2, int pos_inizi
     return m;
 }
 
+
+//Se esiste la lista ListaMosse e se non è vuota viene inserita una nuova mossa in testa alla lista
 void inserisciMossaInTesta(ListaMosse *l, Mossa m) {
     if (l == NULL || m == NULL) return;
     m->next = l->head;
     l->head = m;
 }
 
+//Stampa di tutte le mosse della lista
 void stampaListaMosse(ListaMosse *l) {
     if (l == NULL) return;
     Mossa n = l->head;
