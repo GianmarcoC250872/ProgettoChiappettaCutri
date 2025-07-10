@@ -102,7 +102,7 @@ int main() {
     int rigioca = 1;
     int dado1, dado2, d1, d2 = 0;
 
-
+    //permette di rigiocare se l'utente lo desidera; rigioca è inizializzato a 1
     while (rigioca) {
         stampaTitolo();
 

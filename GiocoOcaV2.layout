@@ -2,51 +2,23 @@
 <CodeBlocks_layout_file>
 	<FileVersion major="1" minor="0" />
 	<ActiveTarget name="Debug" />
-	<File name="tavolaGioco.h" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="-5" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="218" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="main.c" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="-10" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="3000" topLine="175" />
-		</Cursor>
-		<Folding>
-			<Collapse line="11" />
-			<Collapse line="17" />
-			<Collapse line="29" />
-			<Collapse line="57" />
-			<Collapse line="68" />
-			<Collapse line="89" />
-		</Folding>
-	</File>
 	<File name="config.h" open="0" top="0" tabpos="10" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="173" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="mosse.h" open="0" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="-4" zoom_2="0">
+	<File name="main.c" open="1" top="1" tabpos="1" split="0" active="1" splitpos="0" zoom_1="-10" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="0" topLine="9" />
-		</Cursor>
-	</File>
-	<File name="mosse.c" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="-10" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="329" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="players.c" open="0" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="-9" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="4932" topLine="53" />
+			<Cursor1 position="7060" topLine="169" />
 		</Cursor>
 		<Folding>
-			<Collapse line="5" />
-			<Collapse line="14" />
-			<Collapse line="31" />
-			<Collapse line="60" />
-			<Collapse line="85" />
-			<Collapse line="97" />
-			<Collapse line="103" />
+			<Collapse line="11" />
+			<Collapse line="17" />
+			<Collapse line="29" />
+			<Collapse line="50" />
+			<Collapse line="57" />
+			<Collapse line="68" />
+			<Collapse line="89" />
 		</Folding>
 	</File>
 	<File name="players.h" open="0" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="-10" zoom_2="0">
@@ -54,27 +26,46 @@
 			<Cursor1 position="415" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="square_types.c" open="0" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="-7" zoom_2="0">
+	<File name="players.c" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="-9" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="5147" topLine="79" />
+		</Cursor>
+		<Folding>
+			<Collapse line="31" />
+			<Collapse line="60" />
+			<Collapse line="85" />
+			<Collapse line="97" />
+			<Collapse line="103" />
+		</Folding>
+	</File>
+	<File name="square_types.h" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="-10" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="292" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="square_types.c" open="1" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="-7" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="354" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="tavolaGioco.c" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="-10" zoom_2="0">
+	<File name="tavolaGioco.c" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="-10" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="7637" topLine="0" />
+			<Cursor1 position="3438" topLine="0" />
 		</Cursor>
-		<Folding>
-			<Collapse line="17" />
-			<Collapse line="48" />
-			<Collapse line="57" />
-			<Collapse line="93" />
-			<Collapse line="128" />
-			<Collapse line="142" />
-		</Folding>
 	</File>
-	<File name="square_types.h" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="-10" zoom_2="0">
+	<File name="mosse.h" open="0" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="-4" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="292" topLine="0" />
+			<Cursor1 position="0" topLine="9" />
+		</Cursor>
+	</File>
+	<File name="mosse.c" open="1" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="-10" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="18" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="tavolaGioco.h" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="-5" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="566" topLine="0" />
 		</Cursor>
 	</File>
 </CodeBlocks_layout_file>

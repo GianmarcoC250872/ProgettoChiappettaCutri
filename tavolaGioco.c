@@ -46,19 +46,19 @@ void caricaCaselleDaFile(const char* filename) {
     fclose(file);
 }
 
-void mescolaSpeciali() {
-    for (int i = MAX_SPECIALI - 1; i > 0; i--){
+void mescolaSpeciali(TipoCasella tipi[], int n) {
+    for (int i = n - 1; i > 0; i--) {
         int j = rand() % (i + 1);
-        CasellaSpeciale temp = speciali[i];
-        speciali[i] = speciali[j];
-        speciali[j] = temp;
+        TipoCasella tmp = tipi[i];
+        tipi[i] = tipi[j];
+        tipi[j] = tmp;
     }
 }
 
 void assegnaTipiCaselle(ModalitaGioco modalita) {
     caricaCaselleDaFile("caselle.txt");
 
-    //salva le posizioni originali
+    // Salva le posizioni originali e i tipi
     int posizioni[MAX_SPECIALI];
     TipoCasella tipi[MAX_SPECIALI];
 
@@ -67,17 +67,12 @@ void assegnaTipiCaselle(ModalitaGioco modalita) {
         tipi[i] = speciali[i].tipo;
     }
 
-    //mescola le caselle
+    // Mescola i tipi se in modalità ARCADE
     if (modalita == ARCADE) {
-        for (int i = num_speciali - 1; i > 0; i--) {
-            int j = rand() % (i + 1);
-            TipoCasella tmp = tipi[i];
-            tipi[i] = tipi[j];
-            tipi[j] = tmp;
-        }
+        mescolaSpeciali(tipi, num_speciali);
     }
 
-    //assegna i tipi alle posizioni con eventuale effetto
+    // Assegna i tipi alle posizioni con eventuale effetto
     for (int i = 0; i < num_speciali; i++) {
         Casella *c = getCasella(posizioni[i]);
         if (c) {

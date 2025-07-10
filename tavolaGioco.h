@@ -20,6 +20,6 @@ Casella* getCasella(int numero);
 void stampaTavola(PlayerList *lista, int num_giocatori);
 void caricaCaselleDaFile(const char* filename);
 void assegnaTipiCaselle(ModalitaGioco modalita);
-void mescolaSpeciali(void);
+void mescolaSpeciali(TipoCasella tipi[], int n);
 
 #endif // TAVOLAGIOCO_H_INCLUDED

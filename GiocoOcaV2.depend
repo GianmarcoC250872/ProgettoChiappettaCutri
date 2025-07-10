@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1752066995 source:c:\codeblocks\giocoocav2\main.c
+1752137755 source:c:\codeblocks\giocoocav2\main.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -24,7 +24,7 @@
 1752067698 c:\codeblocks\giocoocav2\square_types.h
 	"config.h"
 
-1752067511 c:\codeblocks\giocoocav2\tavolagioco.h
+1752138324 c:\codeblocks\giocoocav2\tavolagioco.h
 	"config.h"
 	"square_types.h"
 	"players.h"
@@ -44,7 +44,7 @@
 	<stdio.h>
 	"square_types.h"
 
-1752067286 source:c:\codeblocks\giocoocav2\tavolagioco.c
+1752138337 source:c:\codeblocks\giocoocav2\tavolagioco.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>

@@ -159,7 +159,7 @@ void stampaClassifica(PlayerList *lista, FILE *logfile) {
         curr = curr->next;
     }
 
-    // Ordina per posizione decrescente
+    // Ordina per posizione decrescente (pseudo selection sort)
     for (int i = 0; i < n - 1; i++) {
         for (int j = i + 1; j < n; j++) {
             if (giocatori[i]->position < giocatori[j]->position) {
