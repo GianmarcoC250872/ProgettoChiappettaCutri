@@ -136,7 +136,7 @@ Player *nextGiocatore(PlayerList *list) {
 }
 
 
-//se la lista esiste: scorre tutta la lista; licera ad uno ad uno i nodi Players; alla fine libera la struttura PlayerList stessa
+//se la lista esiste: scorre tutta la lista; liBera ad uno ad uno i nodi Players; alla fine libera la struttura PlayerList stessa
 void liberaListaGiocatori(PlayerList *list) {
     if (!list) return;
     Player *current = list->head;
@@ -184,4 +184,3 @@ void stampaClassifica(PlayerList *lista, FILE *logfile) {
         }
     }
 }
-

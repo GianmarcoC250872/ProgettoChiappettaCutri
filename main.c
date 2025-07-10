@@ -15,6 +15,21 @@ void stampaTitolo() {
     printf("===============================\n\n");
 }
 
+void stampaLegenda() {
+    printf("\n========== LEGENDA CASELLE ==========\n");
+    printf("START         : Inizio del percorso\n");
+    printf("END           : Fine del percorso\n");
+    printf("FRWD (AVANZA) : Vai avanti di un rand fra 1 e 5\n");
+    printf("BACK          : Torna indietro di un rand fra 1 e 5\n");
+    printf("STOP          : Salta un turno\n");
+    printf("POZZ          : Resti bloccato per 3 turni,\n");
+    printf("              : puoi uscire solo se un giocatore prende il tuo posto o se fai numero doppio\n");
+    printf("BT_S          : Torni allo START\n");
+    printf("--            : Casella normale\n");
+    printf("G1            : Giocatore nella casella\n");
+    printf("=====================================\n");
+}
+
 int leggiNumero(const char* prompt, int min, int max) {
     int val;
     char buffer[100];
@@ -48,11 +63,10 @@ int scegliColoreDisponibile(int colori_assegnati[], int num_giocatori) {
     }
 }
 
-void attendiInvio() {
-    int ch;
-    while ((ch = getchar()) != '\n' && ch != EOF); //svuota il buffer
-    printf("Premi INVIO per tirare i dadi...");
-    while (getchar() != '\n'); //ferma il programma finchè non legge invio
+void attendiInvio(const char *messaggio) {
+    printf("%s", messaggio);
+    fflush(stdout);
+    while (getchar() != '\n');
 }
 
 int nomeGiaPresente(PlayerList *lista, const char *nome) {
@@ -134,6 +148,12 @@ int main() {
         else
             fprintf(logfile, "Modalità: Arcade\n");
 
+        sleep(1);
+        printf("\nPerfetto, prima di giocare ecco una breve spiegazione delle caselle: \n");
+        sleep(1);
+        stampaLegenda();
+        sleep(1);
+        attendiInvio("\nPremi INVIO per iniziare a giocare\n");
         printf("Perfetto, stampo la tavola di gioco...\n");
         sleep(1);
         inizializzaTavola(modalita);
@@ -144,12 +164,12 @@ int main() {
         int vincitore_trovato = 0;
 
         while (!vincitore_trovato) {
-            printf("\nINIZIO TURNO %d\n", turno);
+            printf("\nINIZIO TURNO %d: ", turno);
             rewindGiocatori(giocatori);
 
             while (hasNextGiocatore(giocatori)) {
                 Player *g = nextGiocatore(giocatori);
-                printf("Turno di %s\n", g->name);
+                printf("\nTURNO %d: Turno di %s\n", turno, g->name);
 
                 if (g->stato == ARRIVATO) continue;
                 if (g->stato == BLOCCATO) {
@@ -165,7 +185,7 @@ int main() {
                         g->turniNelPozzo = 0;
                     } else {
                         printf("ATTENZIONE: %s, sei nel POZZO! Per uscire devi fare DOPPIO.\n", g->name);
-                        attendiInvio();
+                        attendiInvio("\nPremi INVIO per tirare i DADI e provare a fare DOPPIO\n");
 
                         d1 = rand() % 6 + 1;
                         d2 = rand() % 6 + 1;
@@ -181,8 +201,8 @@ int main() {
                         continue;
                     }
                 }
-
-                attendiInvio();
+                sleep(1);
+                attendiInvio("\nPremi INVIO per tirare i DADI!\n");
                 dado1 = rand() % 6 + 1;
                 dado2 = rand() % 6 + 1;
                 int somma = dado1 + dado2;
@@ -210,19 +230,19 @@ int main() {
                     if (tipo == AVANZA) {
                         printf("Ti sposti in AVANTI di %d casella/e!\n", casella->effetto);
                         g->position += casella->effetto;
-                        sleep(1);
+                        sleep(2);
                         stampaTavola(giocatori, num_giocatori);
                     }
                     else if (tipo == TORNA_INDIETRO) {
                         printf("Ti sposti INDIETRO di %d casella/e!\n", casella->effetto);
                         g->position -= casella->effetto;
-                        sleep(1);
+                        sleep(2);
                         stampaTavola(giocatori, num_giocatori);
                         if (g->position < 0) g->position = 0;
                     }
                     else if (tipo == BACK_TO_START) {
                         g->position = 0;
-                        sleep(1);
+                        sleep(2);
                         stampaTavola(giocatori, num_giocatori);
                     }
                     else if (tipo == STOP) {

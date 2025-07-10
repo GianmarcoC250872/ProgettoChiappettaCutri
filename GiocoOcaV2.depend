@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1752137755 source:c:\codeblocks\giocoocav2\main.c
+1752142963 source:c:\codeblocks\giocoocav2\main.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -34,7 +34,7 @@
 	<stdlib.h>
 	"mosse.h"
 
-1752055682 source:c:\codeblocks\giocoocav2\players.c
+1752144603 source:c:\codeblocks\giocoocav2\players.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
